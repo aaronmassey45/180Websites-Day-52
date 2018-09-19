@@ -3,112 +3,91 @@ import Navbar from './components/Navbar';
 import './App.css';
 
 export default class App extends Component {
-  constructor() {
-    super();
+  state = {
+    hex: '',
+    rgb: '',
+  };
 
-    this.state = {
-      hex: '',
-      rgb: '',
-    };
-  }
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value }, () => {
+      if (name === 'hex') {
+        this.updateHex();
+      } else {
+        this.updateRGB();
+      }
+    });
+  };
 
-  handleHexChange = e => {
-    const { value } = e.target;
-    this.setState({ hex: value });
-    if (hexToRgb(value) !== null) {
-      document.body.style.color = getContrastYIQ(value);
-      const rgb = hexToRgb(value);
-      const r = rgb.r;
-      const g = rgb.g;
-      const b = rgb.b;
-      this.setState({ rgb: `${r}, ${g}, ${b}` }, () => {
-        document.body.style.backgroundColor = `rgb(${this.state.rgb})`;
-      });
+  updateHex = () => {
+    const rgb = this.hexToRgb(this.state.hex);
+    if (rgb) {
+      const { r, g, b } = rgb;
+      this.setState({ rgb: `${r}, ${g}, ${b}` }, this.setBGColor);
     }
   };
 
-  handleRGBChange = e => {
-    const { value } = e.target;
-    this.setState({ rgb: value });
-    const arr = value.split(',').map(x => {
-      return x.trim();
-    });
+  updateRGB = () => {
+    const arr = this.state.rgb.split(',').map(x => x.trim());
     if (arr.length === 3) {
-      const hex = rgbToHex(arr[0], arr[1], arr[2]);
-      this.setState({ hex }, () => {
-        document.body.style.backgroundColor = hex;
-        document.body.style.color = getContrastYIQ(hex);
-      });
+      const hex = this.rgbToHex(arr[0], arr[1], arr[2]);
+      this.setState({ hex }, this.setBGColor);
     }
+  };
+
+  hexToRgb = input => {
+    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    const hex = input.replace(shorthandRegex, function(m, r, g, b) {
+      return r + r + g + g + b + b;
+    });
+
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result
+      ? {
+          r: parseInt(result[1], 16),
+          g: parseInt(result[2], 16),
+          b: parseInt(result[3], 16),
+        }
+      : null;
+  };
+
+  rgbToHex = (r, g, b) => {
+    const rgb = b | (g << 8) | (r << 16);
+    return '#' + (0x1000000 | rgb).toString(16).substring(1);
+  };
+
+  setBGColor = () => {
+    document.body.style.backgroundColor = `#${this.state.hex}`;
   };
 
   render() {
     const { hex, rgb } = this.state;
     return (
-      <div className="App">
-        <Navbar brand="Hex/RGB Converter" />
-        <div className="container">
-          <p>
-            <input
-              type="text"
-              name="hex"
-              placeholder="hex.."
-              value={hex}
-              onChange={this.handleHexChange}
-            />
-          </p>
-          <p>
-            <input
-              type="text"
-              name="rgb"
-              placeholder="rgb.."
-              value={rgb}
-              onChange={this.handleRGBChange}
-            />
-          </p>
+      <div>
+        <Navbar />
+        <div className="container card text-white bg-light">
+          <div className="card-body">
+            <p>
+              <input
+                type="text"
+                name="hex"
+                placeholder="hex.."
+                value={hex}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              <input
+                type="text"
+                name="rgb"
+                placeholder="rgb.."
+                value={rgb}
+                onChange={this.handleChange}
+              />
+            </p>
+          </div>
         </div>
       </div>
     );
   }
-}
-
-function hexToRgb(hex) {
-  // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-  var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
-  hex = hex.replace(shorthandRegex, function(m, r, g, b) {
-    return r + r + g + g + b + b;
-  });
-
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-      }
-    : null;
-}
-
-function rgbToHex(r, g, b) {
-  var rgb = b | (g << 8) | (r << 16);
-  return '#' + (0x1000000 | rgb).toString(16).substring(1);
-}
-
-function getContrastYIQ(hexcolor) {
-  let hex = hexcolor.split('');
-  if (hex[0] === '#') {
-    hex.shift();
-  }
-  hex = hex.join('');
-  hex =
-    hexcolor.length === 3
-      ? `${hexcolor.charAt(0)}${hexcolor.charAt(0)}${hexcolor.charAt(
-          1
-        )}${hexcolor.charAt(1)}${hexcolor.charAt(2)}${hexcolor.charAt(2)}`
-      : hex;
-  var r = parseInt(hex.substr(0, 2), 16);
-  var g = parseInt(hex.substr(2, 2), 16);
-  var b = parseInt(hex.substr(4, 2), 16);
-  var yiq = (r * 299 + g * 587 + b * 114) / 1000;
-  return yiq >= 128 ? 'black' : 'white';
 }
