@@ -2,20 +2,25 @@
   text-align: center;
 }
 
-#hex, #rgb {
+input {
   border: none;
   border-bottom: 1px dotted black;
   background: transparent;
 }
 
-#hex:focus, #rgb:focus {
-  outline: 0 !important
+input:focus {
+  outline: 0 !important;
 }
 
 .hexrgb {
-  font-size: 25px
+  font-size: 25px;
 }
 
-.navbar {
-  border-radius: 0;
+.navbar-nav {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.nav-item {
+  margin: 0 5px;
 }
