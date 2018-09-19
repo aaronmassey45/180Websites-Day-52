@@ -1053,7 +1053,7 @@ babel-register@^6.24.1, babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@6.26.0, babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
+babel-runtime@6.26.0, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -1535,10 +1535,6 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
-
-classnames@^2.2.5:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
 
 clean-css@4.2.x:
   version "4.2.1"
@@ -2168,10 +2164,6 @@ dom-converter@~0.1:
   resolved "https://registry.yarnpkg.com/dom-converter/-/dom-converter-0.1.4.tgz#a45ef5727b890c9bffe6d7c876e7b19cb0e17f3b"
   dependencies:
     utila "~0.3"
-
-dom-helpers@^3.2.0, dom-helpers@^3.2.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.3.1.tgz#fc1a4e15ffdf60ddde03a480a9c0fece821dd4a6"
 
 dom-serializer@0:
   version "0.1.0"
@@ -3544,7 +3536,7 @@ interpret@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.1.0.tgz#7ed1b1410c6a0e0f78cf95d3b8440c63f78b8614"
 
-invariant@^2.1.0, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
+invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   dependencies:
@@ -4283,10 +4275,6 @@ jsprim@^1.2.2:
 jsx-ast-utils@^1.4.0, jsx-ast-utils@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jsx-ast-utils/-/jsx-ast-utils-1.4.1.tgz#3867213e8dd79bf1e8f2300c0cfc1efb182c0df1"
-
-keycode@^2.1.2:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.2.0.tgz#3d0af56dc7b8b8e5cba8d0a97f107204eec22b04"
 
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
@@ -5631,13 +5619,6 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types-extra@^1.0.1:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/prop-types-extra/-/prop-types-extra-1.1.0.tgz#32609910ea2dcf190366bacd3490d5a6412a605f"
-  dependencies:
-    react-is "^16.3.2"
-    warning "^3.0.0"
-
 prop-types@^15.5.10:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
@@ -5764,21 +5745,6 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.1.7, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-bootstrap@^0.31.3:
-  version "0.31.5"
-  resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-0.31.5.tgz#57040fa8b1274e1e074803c21a1b895fdabea05a"
-  dependencies:
-    babel-runtime "^6.11.6"
-    classnames "^2.2.5"
-    dom-helpers "^3.2.0"
-    invariant "^2.2.1"
-    keycode "^2.1.2"
-    prop-types "^15.5.10"
-    prop-types-extra "^1.0.1"
-    react-overlays "^0.7.4"
-    uncontrollable "^4.1.0"
-    warning "^3.0.0"
-
 react-dev-utils@^4.0.1:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.2.tgz#e8f2ffdbf27bfb13ee88ac18e20c83163aac0659"
@@ -5814,20 +5780,6 @@ react-dom@^15.6.1:
 react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
-
-react-is@^16.3.2:
-  version "16.4.2"
-  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.2.tgz#84891b56c2b6d9efdee577cc83501dfc5ecead88"
-
-react-overlays@^0.7.4:
-  version "0.7.4"
-  resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.7.4.tgz#ef2ec652c3444ab8aa014262b18f662068e56d5c"
-  dependencies:
-    classnames "^2.2.5"
-    dom-helpers "^3.2.1"
-    prop-types "^15.5.10"
-    prop-types-extra "^1.0.1"
-    warning "^3.0.0"
 
 react-scripts@1.0.13:
   version "1.0.13"
@@ -6998,12 +6950,6 @@ uid-number@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
-uncontrollable@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/uncontrollable/-/uncontrollable-4.1.0.tgz#e0358291252e1865222d90939b19f2f49f81c1a9"
-  dependencies:
-    invariant "^2.1.0"
-
 union-value@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/union-value/-/union-value-1.0.0.tgz#5c71c34cb5bad5dcebe3ea0cd08207ba5aa1aea4"
@@ -7184,12 +7130,6 @@ walker@~1.0.5:
   resolved "https://registry.yarnpkg.com/walker/-/walker-1.0.7.tgz#2f7f9b8fd10d677262b18a884e28d19618e028fb"
   dependencies:
     makeerror "1.0.x"
-
-warning@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
-  dependencies:
-    loose-envify "^1.0.0"
 
 watch@~0.10.0:
   version "0.10.0"
